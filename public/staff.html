@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Staff Dashboard | Saffron Table</title>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <script src="/assets/js/staff.js" defer></script>
+</head>
+<body class="staff-page">
+  <div id="login-view" class="login-view">
+    <main class="login-card" aria-labelledby="login-title">
+      <a class="brand brand-centered" href="/">
+        <span class="brand-mark" aria-hidden="true">S</span>
+        <span><strong>Saffron Table</strong><small>Staff portal</small></span>
+      </a>
+      <div class="login-heading">
+        <span class="lock-icon" aria-hidden="true">◇</span>
+        <h1 id="login-title">Welcome back</h1>
+        <p>Enter the staff password to manage reservations.</p>
+      </div>
+      <form id="login-form" novalidate>
+        <div class="field">
+          <label for="staff-password">Staff password</label>
+          <div class="password-wrap">
+            <input id="staff-password" name="password" type="password" autocomplete="current-password" required autofocus>
+            <button id="toggle-password" class="icon-button password-toggle" type="button" aria-label="Show password">Show</button>
+          </div>
+        </div>
+        <div id="login-alert" class="form-alert" role="alert" hidden></div>
+        <button class="button button-primary button-submit" type="submit"><span class="button-label">Open dashboard</span><span class="spinner"></span></button>
+      </form>
+      <a class="back-link" href="/">← Back to reservation page</a>
+    </main>
+  </div>
+
+  <div id="dashboard-view" hidden>
+    <header class="dashboard-header">
+      <div class="container dashboard-nav">
+        <a class="brand" href="/">
+          <span class="brand-mark" aria-hidden="true">S</span>
+          <span><strong>Saffron Table</strong><small>Reservation desk</small></span>
+        </a>
+        <button id="logout-button" class="button button-ghost" type="button">Log out</button>
+      </div>
+    </header>
+
+    <main class="container dashboard-main">
+      <div class="dashboard-title-row">
+        <div><p class="eyebrow">Staff dashboard</p><h1>Reservations</h1><p>Manage guest bookings and service status.</p></div>
+        <div class="top-actions">
+          <button id="export-button" class="button button-secondary" type="button">Export CSV</button>
+          <button id="refresh-button" class="button button-primary" type="button">↻ Refresh</button>
+        </div>
+      </div>
+
+      <section class="stats-grid" aria-label="Booking summary">
+        <article class="stat-card"><span>Total bookings</span><strong id="total-count">0</strong><small>All reservations</small></article>
+        <article class="stat-card"><span>Today</span><strong id="today-count">0</strong><small>Scheduled today</small></article>
+        <article class="stat-card"><span>Upcoming</span><strong id="upcoming-count">0</strong><small>Future reservations</small></article>
+      </section>
+
+      <section class="bookings-panel" aria-labelledby="booking-list-title">
+        <div class="toolbar">
+          <div class="filter-tabs" role="group" aria-label="Filter bookings">
+            <button class="filter-tab active" type="button" data-filter="today">Today</button>
+            <button class="filter-tab" type="button" data-filter="tomorrow">Tomorrow</button>
+            <button class="filter-tab" type="button" data-filter="yesterday">Yesterday</button>
+            <button class="filter-tab" type="button" data-filter="all">All</button>
+          </div>
+          <label class="search-box" for="booking-search"><span class="sr-only">Search bookings</span><span aria-hidden="true">⌕</span><input id="booking-search" type="search" placeholder="Search name, phone or booking ID"></label>
+        </div>
+
+        <div class="list-heading"><h2 id="booking-list-title">Today’s bookings</h2><span id="result-count">0 bookings</span></div>
+        <div id="dashboard-alert" class="form-alert panel-alert" role="alert" hidden></div>
+        <div id="loading-state" class="loading-state"><span class="spinner spinner-dark"></span> Loading reservations…</div>
+        <div id="empty-state" class="empty-state" hidden><span aria-hidden="true">◇</span><h3>No bookings found</h3><p>Try another date filter or search term.</p></div>
+
+        <div id="desktop-table" class="table-wrap" hidden>
+          <table>
+            <thead><tr><th>Guest</th><th>Booking</th><th>Guests</th><th>Request</th><th>Status</th><th><span class="sr-only">Actions</span></th></tr></thead>
+            <tbody id="booking-table-body"></tbody>
+          </table>
+        </div>
+        <div id="mobile-cards" class="mobile-booking-list" hidden></div>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="delete-dialog" class="confirm-dialog">
+    <form method="dialog">
+      <div class="danger-icon" aria-hidden="true">!</div>
+      <h2>Delete this booking?</h2>
+      <p>This permanently removes <strong id="delete-booking-id"></strong>. This action cannot be undone.</p>
+      <div class="dialog-actions"><button class="button button-secondary" value="cancel">Keep booking</button><button id="confirm-delete" class="button button-danger" value="confirm">Delete booking</button></div>
+    </form>
+  </dialog>
+</body>
+</html>

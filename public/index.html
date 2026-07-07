@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Reserve your table at Saffron Table.">
+  <title>Saffron Table | Reserve a Table</title>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <script src="/assets/js/booking.js" defer></script>
+</head>
+<body class="booking-page">
+  <a class="skip-link" href="#booking-form">Skip to booking form</a>
+  <header class="site-header container">
+    <a class="brand" href="/" aria-label="Saffron Table home">
+      <span class="brand-mark" aria-hidden="true">S</span>
+      <span><strong>Saffron Table</strong><small>Modern Indian Kitchen</small></span>
+    </a>
+    <a class="staff-link" href="/staff">Staff portal <span aria-hidden="true">→</span></a>
+  </header>
+
+  <main class="booking-shell container">
+    <section class="hero-panel" aria-labelledby="hero-title">
+      <p class="eyebrow">A table worth gathering around</p>
+      <h1 id="hero-title">Your evening,<br><em>beautifully reserved.</em></h1>
+      <p class="hero-copy">Thoughtful food, warm hospitality, and a place waiting just for you.</p>
+      <div class="service-details">
+        <div><span class="detail-icon" aria-hidden="true">◷</span><span><small>Dining hours</small><strong>10:00 AM – 11:59 PM</strong></span></div>
+        <div><span class="detail-icon" aria-hidden="true">⌖</span><span><small>Location</small><strong>City Centre, Hyderabad</strong></span></div>
+      </div>
+      <blockquote>“A warm, unhurried dining experience.”</blockquote>
+    </section>
+
+    <section class="form-card" aria-labelledby="form-title">
+      <div class="form-heading">
+        <p class="eyebrow">Reservations</p>
+        <h2 id="form-title">Book your table</h2>
+        <p>We’ll hold your table once your reservation is confirmed.</p>
+      </div>
+
+      <div id="success-panel" class="success-panel" role="status" aria-live="polite" hidden>
+        <div class="success-icon" aria-hidden="true">✓</div>
+        <h2>Your table is reserved</h2>
+        <p>Thank you, <strong id="success-name"></strong>. We look forward to welcoming you.</p>
+        <div class="booking-reference"><span>Booking ID</span><strong id="booking-id"></strong></div>
+        <button class="button button-primary" id="new-booking" type="button">Make another booking</button>
+      </div>
+
+      <form id="booking-form" novalidate>
+        <div class="field">
+          <label for="customer-name">Customer name <span aria-hidden="true">*</span></label>
+          <input id="customer-name" name="customerName" type="text" autocomplete="name" maxlength="80" placeholder="e.g. Priya Sharma" required>
+          <span class="field-error" id="customer-name-error"></span>
+        </div>
+        <div class="field">
+          <label for="phone">Phone number <span aria-hidden="true">*</span></label>
+          <input id="phone" name="phone" type="tel" autocomplete="tel" maxlength="20" placeholder="e.g. +91 98765 43210" required>
+          <span class="field-error" id="phone-error"></span>
+        </div>
+        <div class="form-grid">
+          <div class="field picker-field" data-picker="booking-date">
+            <label for="booking-date">Booking date <span aria-hidden="true">*</span></label>
+            <input id="booking-date" name="bookingDate" type="date" required>
+            <span class="field-error" id="booking-date-error"></span>
+          </div>
+          <div class="field picker-field" data-picker="booking-time">
+            <label for="booking-time">Booking time <span aria-hidden="true">*</span></label>
+            <input id="booking-time" name="bookingTime" type="time" min="10:00" max="23:59" required>
+            <span class="field-error" id="booking-time-error"></span>
+          </div>
+        </div>
+        <div class="field">
+          <label for="guests">Number of guests <span aria-hidden="true">*</span></label>
+          <select id="guests" name="guests" required>
+            <option value="">Select party size</option>
+            <option value="1">1 guest</option><option value="2">2 guests</option><option value="3">3 guests</option>
+            <option value="4">4 guests</option><option value="5">5 guests</option><option value="6">6 guests</option>
+            <option value="7">7 guests</option><option value="8">8 guests</option><option value="9">9 guests</option>
+            <option value="10">10 guests</option><option value="12">12 guests</option><option value="15">15 guests</option><option value="20">20 guests</option>
+          </select>
+          <span class="field-error" id="guests-error"></span>
+        </div>
+        <div class="field">
+          <label for="special-request">Special request <span class="optional">Optional</span></label>
+          <textarea id="special-request" name="specialRequest" maxlength="500" rows="3" placeholder="Allergies, celebrations, accessibility needs…"></textarea>
+          <span class="field-error" id="special-request-error"></span>
+        </div>
+        <div id="form-alert" class="form-alert" role="alert" hidden></div>
+        <button class="button button-primary button-submit" type="submit">
+          <span class="button-label">Reserve my table</span><span class="spinner" aria-hidden="true"></span>
+        </button>
+        <p class="privacy-note"><span aria-hidden="true">♢</span> Your details are used only to manage this reservation.</p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer container"><span>© 2026 Saffron Table</span><span>Reservations subject to availability</span></footer>
+</body>
+</html>
