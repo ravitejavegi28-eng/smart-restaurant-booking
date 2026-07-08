@@ -3,9 +3,7 @@ node_modules/
 .env
 .env.*
 !.env.example
+temp_supabase_check.js
 *.log
 .DS_Store
 coverage/
-
-
-.vercel
