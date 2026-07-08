@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Saffron Table">
+  <rect width="64" height="64" rx="16" fill="#123f2d"/>
+  <circle cx="32" cy="34" r="18" fill="#f8f3e8"/>
+  <circle cx="32" cy="34" r="11" fill="none" stroke="#c88c3a" stroke-width="3"/>
+  <path d="M16 12v18M12 12v18M20 12v18M12 21h8M48 12v40" stroke="#f8f3e8" stroke-width="4" stroke-linecap="round"/>
+  <path d="M48 12c6 5 6 15 0 20" fill="none" stroke="#f8f3e8" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="32" cy="34" r="4" fill="#c88c3a"/>
+</svg>
